@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+ 
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<div>
+<center><h2 >Spring Boot Crud System Registation</h2>
+<tr>
+<div align = "center" >   
+     <h3><a href="@{'/new'}">Add new</a></h3>    
+    </div>
+</tr>
+<tr>
+<div class="col-sm-5" align = "center">
+                 <div class="panel-body" align = "center" >
+                 <table class="table">
+  <thead class="thead-dark">
+    <tr>
+       <th>Customer ID</th>
+            <th> Name</th>
+            <th>Address</th>
+            <th>phonenumber</th>
+			 <th>dataofbirthrecords</th>
+            <th>Edit</th>
+            <th>Delete</th>
+   </tr>
+  </thead></center>
+    <form th:action="@{/logout}" method="post">
+            
+            <input type="submit" value="Sign Out" />
+        </form>
+  <tbody>
+      <tr  th:each="customer : ${listcustomer }">
+<td th:text="${customer.id}"> Customer ID</td>
+<td th:text="${customer.Name}">Name</td>
+<td th:text="${customer.Address}">Address</td>
+<td th:text="${customer.phonenumber}">phonenumber</td>
+<td th:text="${customer.dataofbirthrecords}">dataofbirthrecords</td>
+
+<td>
+<a href="@{'/edit/' + ${customer.id}}">Edit</a>
+</td>     
+<td>
+<a href="@{'/delete/' + ${customer.id}}">Delete</a>
+</td>     
+</tr>
+  
+  </tbody>
+</table>
+                    
+                 </div>
+ 
+            </div>
+ 
+</tr>
+ 
+</tbody>
+</table>
+<div>
+</body>
+</html>
